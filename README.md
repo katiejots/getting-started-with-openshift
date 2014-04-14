@@ -11,13 +11,15 @@ See an error? Report it [here](http://oreilly.com/catalog/errata.csp?isbn=063692
 
 # Book Chapters and Tags
 
-This repository contains the commits mentioned throughout the book. These are all tagged. To view the code repository at a particular stage of the app's progress, check out the corresponding tag for that point in the book. For example:
+This repository contains the commits mentioned throughout the book. These are all tagged. To view the code repository at a particular stage of the app's progress, you can check out the corresponding tag for that point in the book. For example:
 
     git checkout Chapter2
 
 To go back to the head of the repository, use `git checkout master`.
 
 You can list all tags with the command `git tag --list`.
+
+Alternatively, you can download a Zip file containing the code for each stage of the app from the [releases page](https://github.com/codemiller/getting-started-with-openshift/releases).
 
 # Insult Application Ports
 
