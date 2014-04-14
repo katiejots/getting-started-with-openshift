@@ -1,0 +1,18 @@
+#!/bin/bash
+# .openshift/cron/minutely/ricktock
+
+MIN=$(date '+%M')
+LOG=${OPENSHIFT_PYTHON_LOG_DIR}/ricktock.log
+MSG1="Never gonna give you up\nNever gonna let you down\nNever gonna run around and desert you"
+MSG2="Never gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you"
+
+if [ $MIN == 15 ]; then
+  echo -e `date` $MSG1 >> $LOG
+fi
+
+if [ $MIN == 45 ]; then
+  echo -e `date` $MSG2 >> $LOG
+fi
+
+exit
+
