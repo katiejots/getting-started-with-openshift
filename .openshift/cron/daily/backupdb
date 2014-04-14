@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DATE=`date +"%Y-%m-%d"`
+FILE="$OPENSHIFT_APP_NAME-$DATE.sql.gz"
+INIT_PATH=$OPENSHIFT_DATA_DIR/$FILE
+BACKUP_DIR=$OPENSHIFT_DATA_DIR/sqlbackup
+
+if [ ! -d "$BACKUP_DIR" ]; then
+  mkdir $BACKUP_DIR
+fi
+pg_dump $OPENSHIFT_APP_NAME | gzip > $INIT_PATH
+mv $INIT_PATH $BACKUP_DIR/$FILE
+
