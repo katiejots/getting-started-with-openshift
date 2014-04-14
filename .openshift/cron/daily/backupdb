@@ -1,13 +1,8 @@
 #!/bin/bash
 
 DATE=`date +"%Y-%m-%d"`
-FILE="$OPENSHIFT_APP_NAME-$DATE.sql.gz"
-INIT_PATH=$OPENSHIFT_DATA_DIR/$FILE
-BACKUP_DIR=$OPENSHIFT_DATA_DIR/sqlbackup
+FILEPATH="$OPENSHIFT_DATA_DIR/$OPENSHIFT_APP_NAME-$DATE.sql.gz"
 
-if [ ! -d "$BACKUP_DIR" ]; then
-  mkdir $BACKUP_DIR
-fi
-pg_dump $OPENSHIFT_APP_NAME | gzip > $INIT_PATH
-mv $INIT_PATH $BACKUP_DIR/$FILE
+pg_dump $OPENSHIFT_APP_NAME | gzip > $FILEPATH
+scp -i $OPENSHIFT_DATA_DIR/.ssh/id_rsa -o StrictHostKeyChecking=no $FILEPATH user@mybackupserver.com:~/backup && rm $FILEPATH
 
