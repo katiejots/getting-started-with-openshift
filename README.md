@@ -23,5 +23,5 @@ Alternatively, you can download a Zip file containing the code for each stage of
 
 # Insult Application Ports
 
-Links to ports of this application for other programming languages will be added here.
+- Ruby: https://github.com/marekjelen/insulter
 
